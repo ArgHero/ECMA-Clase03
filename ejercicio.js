@@ -151,9 +151,19 @@ console.log("=====Filtro de los productos por precio");
 const filtroPrecio = (precio, compare =  (a,b) => a>=b ) =>{
     return inventario.filter((item)=>compare(item.precio,precio)).map((item)=>[item.nombre,item.precio]);
 }
-filtroPrecio(300,(a,b)=>a<=b).forEach((item) => console.log(`${item[0]}: ${item[1]}`));
+
+// Usa filter() para obtener los productos que cuesten menos de $100.
+filtroPrecio(100,(a,b)=>a<b).forEach((item) => console.log(`${item[0]}: ${item[1]}`));
 
 console.log("=====Orden alfabético de los productos en una lista");
+// Usa sort() para ordenar esos productos alfabéticamente por su nombre.
+// Usa map() para generar un nuevo arreglo que contenga solo los nombres de los productos.
+// Muestra los resultados de la aplicación de cada métiodo en consola.
+// (Oppcional) Incluye alguno de los métodos faltantes (reduce, some, every, includes, etc.) con algún caso de uso en este ejemplo, usa tu creatividad.
 console.log(inventario.map(item=>item.nombre).sort().reduce((a,b)=>a+=` ${b},`,""));
+
+
+
+
 
 
